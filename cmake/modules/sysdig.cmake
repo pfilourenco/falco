@@ -18,6 +18,7 @@ set(SYSDIG_CMAKE_WORKING_DIR "${CMAKE_BINARY_DIR}/sysdig-repo")
 if(USE_BUNDLED_DEPS)
   # explicitly force this dependency to use the bundled OpenSSL
   set(USE_BUNDLED_OPENSSL ON)
+  set(USE_BUNDLED_JQ ON)
 endif()
 
 file(MAKE_DIRECTORY ${SYSDIG_CMAKE_WORKING_DIR})
@@ -26,8 +27,8 @@ file(MAKE_DIRECTORY ${SYSDIG_CMAKE_WORKING_DIR})
 # To update sysdig version for the next release, change the default below
 # In case you want to test against another sysdig version just pass the variable - ie., `cmake -DSYSDIG_VERSION=dev ..`
 if(NOT SYSDIG_VERSION)
-  set(SYSDIG_VERSION "85c88952b018fdbce2464222c3303229f5bfcfad")
-  set(SYSDIG_CHECKSUM "SHA256=6c3f5f2d699c9540e281f50cbc5cb6b580f0fc689798bc65d4a77f57f932a71c")
+  set(SYSDIG_VERSION "build/jq-update") # todo(fntlnz): revert this before merging
+  set(SYSDIG_CHECKSUM "SHA256=be04af32ade8f4c77ae39c45cb8820975f023b46fdf45edcdd28be104d89110b")
 endif()
 set(PROBE_VERSION "${SYSDIG_VERSION}")
 
